@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CECyTEM - Gestión Escolar</title>
+  <link rel="stylesheet" href="cecy.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Reset y base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* Logo animado */
+    .logo-container {
+      text-align: center;
+      margin: 30px 0 40px;
+    }
+
+    .logo {
+      width: 280px;
+      height: 90px;
+      background-image: url('https://cecytem.edomex.gob.mx/sites/cecytem.edomex.gob.mx/files/images/logo-cecytem-verde.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.6));
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Título principal */
+    .main-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #00ff88, #00d1ff, #ff00ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-align: center;
+      margin-bottom: 30px;
+      text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+    }
+
+    /* Contenedor de tarjetas */
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    /* Tarjeta de sección */
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 25px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: linear-gradient(90deg, #00ff88, #00d1ff, #ff00ff);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 255, 200, 0.2);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+      color: #00ff88;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card h3 i {
+      font-size: 1.8rem;
+      color: #00d1ff;
+    }
+
+    /* Enlaces dentro de tarjeta */
+    .card-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      text-decoration: none;
+      color: #e0e0e0;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card a i {
+      font-size: 1.3rem;
+      width: 24px;
+      text-align: center;
+    }
+
+    .card a:hover {
+      background: rgba(0, 255, 136, 0.2);
+      color: #fff;
+      transform: translateX(8px);
+      border-color: #00ff88;
+      box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+    }
+
+    /* Iconos de colores */
+    .icon-alumno { color: #00ff88; }
+    .icon-materia { color: #00d1ff; }
+    .icon-docente { color: #ff00ff; }
+    .icon-calificacion { color: #ffcc00; }
+
+    /* Footer */
+    .footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 1.8rem;
+      }
+      .logo {
+        width: 220px;
+        height: 70px;
+      }
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo-container">
+    <div class="logo"></div>
+  </div>
+
+  <h1 class="main-title">Gestión Escolar CECyTEM</h1>
+
+  <div class="dashboard">
+
+    <!-- Alumnos -->
+    <div class="card">
+      <h3><i class="fas fa-user-graduate icon-alumno"></i> Alumnos</h3>
+      <div class="card-links">
+        <a href="consultar.php"><i class="fas fa-search"></i> Consultar</a>
+        <a href="insertar.html"><i class="fas fa-plus-circle"></i> Insertar</a>
+        <a href="modificar.php"><i class="fas fa-edit"></i> Modificar</a>
+        <a href="eliminar.php"><i class="fas fa-trash-alt"></i> Eliminar</a>
+      </div>
+    </div>
+
+    <!-- Materias -->
+    <div class="card">
+      <h3><i class="fas fa-book icon-materia"></i> Materias</h3>
+      <div class="card-links">
+        <a href="consultarmat.php"><i class="fas fa-search"></i> Consultar</a>
+        <a href="insertarmat.html"><i class="fas fa-plus-circle"></i> Insertar</a>
+        <a href="modificarmat.php"><i class="fas fa-edit"></i> Modificar</a>
+        <a href="eliminarmat.php"><i class="fas fa-trash-alt"></i> Eliminar</a>
+      </div>
+    </div>
+
+    <!-- Docentes -->
+    <div class="card">
+      <h3><i class="fas fa-chalkboard-teacher icon-docente"></i> Docentes</h3>
+      <div class="card-links">
+        <a href="consultardoc.php"><i class="fas fa-search"></i> Consultar</a>
+        <a href="insertardoc.html"><i class="fas fa-plus-circle"></i> Insertar</a>
+        <a href="modificardoc.php"><i class="fas fa-edit"></i> Modificar</a>
+        <a href="eliminardoc.php"><i class="fas fa-trash-alt"></i> Eliminar</a>
+      </div>
+    </div>
+
+    <!-- Calificaciones -->
+    <div class="card">
+      <h3><i class="fas fa-star icon-calificacion"></i> Calificaciones</h3>
+      <div class="card-links">
+        <a href="consultacal.php"><i class="fas fa-search"></i> Consultar</a>
+        <a href="insertarcal.html"><i class="fas fa-plus-circle"></i> Insertar</a>
+        <a href="modificarcal.php"><i class="fas fa-edit"></i> Modificar</a>
+        <a href="eliminarcal.php"><i class="fas fa-trash-alt"></i> Eliminar</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    &copy; 2025 CECyTEM Donato Guerra | Sistema de Gestión Escolar
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Insertar Docente</title>
+<link rel="stylesheet" href="cecy.css">
+</head>
+<body>
+<fieldset>
+  <legend>Insertar  Docente</legend>
+  <form method="post" action="crud_insertardoc.php">
+    <label>clave_docente</label>
+    <input type="number" name="clave_docente" required>
+
+    <label>nombre_docente</label>
+    <input type="text" name="nombre_docente" required>
+    <br><br>
+    <label>apellido_docente</label>
+    <input type="text" name="apellido_docente" required>
+    <br><br>
+    <label>especialidad</label>
+    <input type="text" name="especialidad" required>
+    <br><br>
+    <label>email</label>
+    <input type="text" name="email" required>
+<br><br>
+<label>fecha_contratacion</label>
+    <input type="date" name="fecha_contratacion" required>
+
+    <input type="submit" name="enviar" value="Guardar">
+    <a href="index.html">🏠 Regresar</a>
+  </form>
+</fieldset>
+</body>
+</html>

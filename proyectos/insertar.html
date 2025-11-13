@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Insertar Alumno</title>
+<link rel="stylesheet" href="cecy.css">
+</head>
+<body>
+<fieldset>
+  <legend>Insertar Alumno</legend>
+  <form method="post" action="conexionbd.php">
+    <label>id_alumno</label>
+    <input type="number" name="id_alumno" required>
+
+    <label>nombre_alumno</label>
+    <input type="text" name="nombre_alumno" required>
+    <br><br>
+    <label>apellido_alumno</label>
+    <input type="text" name="apellido_alumno" required>
+    <br><br>
+    <label>fecha_nac</label>
+    <input type="date" name="fecha_nac" required>
+<br><br>
+<label>direccion</label>
+    <input type="text" name="direccion" required>
+    <label>Teléfono:</label>
+    <input type="tel" name="telefono" pattern="\d{10}" maxlength="10" required placeholder="Ej. 1234567890">
+    <br><br>
+<label>email</label>
+    <input type="text" name="email" required>
+
+    <input type="submit" name="enviar" value="Guardar">
+    <a href="index.html">🏠 Regresar</a>
+  </form>
+</fieldset>
+</body>
+</html>
+
+

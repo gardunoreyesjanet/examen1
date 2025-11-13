@@ -1,0 +1,352 @@
+/* ============================================================= */
+/* cecy.css - DISEÑO UNIFICADO MODERNO - GLASSMORPHISM NEÓN      */
+/* Aplica a: index.html, insertar.html, modificar.php, etc.     */
+/* ============================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* ====================== LOGO ANIMADO ====================== */
+.logo-container {
+    text-align: center;
+    margin: 30px 0 40px;
+}
+
+.logo {
+    width: 280px;
+    height: 90px;
+    background-image: url('https://cecytem.edomex.gob.mx/sites/cecytem.edomex.gob.mx/files/images/logo-cecytem-verde.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.6));
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ====================== TÍTULO PRINCIPAL ====================== */
+.main-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00ff88, #00d1ff, #ff00ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+/* ====================== DASHBOARD (INDEX) ====================== */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 25px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, #00ff88, #00d1ff, #ff00ff);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+.card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 255, 200, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+    color: #00ff88;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card h3 i {
+    font-size: 1.8rem;
+    color: #00d1ff;
+}
+
+.card-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    text-decoration: none;
+    color: #e0e0e0;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card a i {
+    font-size: 1.3rem;
+    width: 24px;
+    text-align: center;
+}
+
+.card a:hover {
+    background: rgba(0, 255, 136, 0.2);
+    color: #fff;
+    transform: translateX(8px);
+    border-color: #00ff88;
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
+
+/* Iconos por sección */
+.icon-alumno { color: #00ff88; }
+.icon-materia { color: #00d1ff; }
+.icon-docente { color: #ff00ff; }
+.icon-calificacion { color: #ffcc00; }
+
+/* ====================== FORMULARIOS ====================== */
+.form-container {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    margin: 20px auto;
+}
+
+legend {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    color: #00ff88;
+    margin-bottom: 25px;
+    padding: 0 10px;
+    background: linear-gradient(90deg, #00ff88, #00d1ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+label {
+    font-weight: 600;
+    color: #e0e0e0;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+/* ====================== INPUTS ====================== */
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #00ff88;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.3);
+}
+
+/* ====================== SELECT PERSONALIZADO ====================== */
+.select-container {
+    position: relative;
+    width: 100%;
+}
+
+.select-container select {
+    width: 100%;
+    padding: 14px 40px 14px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: all 0.3s ease;
+}
+
+.select-container select:focus {
+    outline: none;
+    border-color: #00ff88;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.3);
+}
+
+.select-container::after {
+    content: "▼";
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    color: #00d1ff;
+    font-size: 12px;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+.select-container:hover::after {
+    color: #00ff88;
+}
+
+/* === OPCIONES DEL DROPDOWN (fondo oscuro + glass) === */
+select option {
+    background: rgba(15, 12, 41, 0.95) !important;
+    color: #e0e0e0 !important;
+    padding: 10px 15px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+select option:hover,
+select option:checked {
+    background: rgba(0, 255, 136, 0.3) !important;
+    color: #fff !important;
+    font-weight: 600;
+}
+
+select option[value=""] {
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-style: italic;
+}
+
+/* ====================== BOTONES ====================== */
+input[type="submit"],
+button,
+a.btn {
+    background: linear-gradient(135deg, #00ff88, #00d1ff);
+    color: #0f0c29;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 8px 4px;
+}
+
+input[type="submit"]:hover,
+button:hover,
+a.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 255, 136, 0.4);
+    background: linear-gradient(135deg, #00d1ff, #ff00ff);
+    color: white;
+}
+
+/* ====================== ENLACES ====================== */
+a {
+    color: #00d1ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #00ff88;
+    text-decoration: underline;
+}
+
+/* ====================== FOOTER ====================== */
+.footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ====================== RESPONSIVE ====================== */
+@media (max-width: 768px) {
+    .main-title { font-size: 1.8rem; }
+    .logo { width: 220px; height: 70px; }
+    .dashboard { grid-template-columns: 1fr; }
+    .form-container { padding: 25px; }
+    legend { font-size: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+    .card { padding: 20px; }
+    .form-container { padding: 20px; }
+    input, select, button { font-size: 15px; }
+}
